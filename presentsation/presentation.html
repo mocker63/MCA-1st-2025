@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Yahoo Data Breaches of 2013 & 2014</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
+            color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            overflow: hidden;
+        }
+        .slide-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 85vh;
+            background: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.1);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            padding: 3rem 4rem;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.7s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .slide h1, .slide h2 {
+            font-weight: 700;
+            color: #d1d5db;
+        }
+        .slide h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .slide h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #9ca3af;
+        }
+        .slide p, .slide ul {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #e5e7eb;
+        }
+        .slide ul {
+            list-style-type: '👉';
+            padding-left: 2rem;
+        }
+        .slide ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+        .controls {
+            position: absolute;
+            bottom: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 20;
+        }
+        .control-button {
+            padding: 0.75rem 1.5rem;
+            background: #4b5563;
+            color: white;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .control-button:hover {
+            background: #6b7280;
+            transform: scale(1.05);
+        }
+        .slide-counter {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #9ca3af;
+            z-index: 20;
+        }
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f3f4f6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .slide-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(229, 231, 235, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .glow-effect {
+            animation: pulse 4s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px #f3f4f6, 0 0 20px #f3f4f6, 0 0 30px #f3f4f6, 0 0 40px #f3f4f6; }
+            50% { box-shadow: 0 0 5px #f3f4f6, 0 0 10px #f3f4f6, 0 0 20px #f3f4f6, 0 0 30px #f3f4f6; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="slide-container">
+        
+        <!-- Slide 1: Title Page -->
+        <div id="slide-1" class="slide active">
+            <h1 class="slide-title glow-effect">The Yahoo Data Breaches of 2013 & 2014</h1>
+            <h2 class="slide-subtitle fade-in">Lessons from the Largest Cybersecurity Incident in Internet History</h2>
+            <div class="mt-auto text-center w-full fade-in">
+                <p><strong>Author:</strong> Nikhil Khuraijam</p>
+                <p><strong>Date:</strong> September 2025</p>
+                <p><strong>Institution:</strong> Geeta University – MCA 1st Year</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Executive Summary & Key Takeaways -->
+        <div id="slide-2" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Executive Summary</h1>
+            <p class="text-lg mb-4 fade-in">Between 2013 and 2014, Yahoo Inc. experienced two of the largest data breaches in the history of the internet, affecting nearly 3 billion user accounts. These attacks exposed sensitive user information. Investigations revealed that the breaches were executed by hackers linked to Russian intelligence agencies. The consequences were far-reaching: Verizon, which was in the process of acquiring Yahoo, reduced the purchase price by $350 million. Yahoo also faced multiple lawsuits, regulatory penalties, and irreparable reputational damage.</p>
+            <h2 class="text-xl text-yellow-300 font-semibold mt-4 mb-2 fade-in">Key Takeaways</h2>
+            <ul class="list-disc pl-8 text-lg space-y-2 fade-in">
+                <li>The largest data breach ever recorded, impacting 3 billion accounts.</li>
+                <li>Weak encryption and outdated practices allowed attackers long-term access.</li>
+                <li>Yahoo’s delayed disclosure worsened public backlash and financial losses.</li>
+                <li>The incident reshaped industry standards for cybersecurity and breach reporting.</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 3: Introduction & Problem Statement -->
+        <div id="slide-3" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Introduction & Problem Statement</h1>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+                <div>
+                    <h2 class="text-xl font-semibold text-sky-400 mb-2">Background</h2>
+                    <p class="mt-2 text-base">In the early 2010s, Yahoo remained a major global internet player. Its security infrastructure lagged behind, relying on MD5 hashing, a widely insecure and outdated algorithm. This, coupled with internal instability and underinvestment, made it vulnerable to advanced persistent threats (APTs) from nation-states.</p>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-sky-400 mb-2">Problem & Objectives</h2>
+                    <p class="mt-2 text-base">🚨 Yahoo suffered two of the largest known breaches in history due to weak security practices and a delayed response. This study aims to analyze the root causes, assess Yahoo's response, and identify lessons for other organizations in handling cybersecurity risks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Case Description & Analysis -->
+        <div id="slide-4" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Case Description & Analysis</h1>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+                <div>
+                    <h2 class="text-xl font-semibold text-pink-400 mb-2">Timeline of Events</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li><strong>2013 Breach:</strong> Hackers stole data from all 3 billion accounts.</li>
+                        <li><strong>2014 Breach:</strong> A separate attack compromised 500 million accounts.</li>
+                        <li><strong>2016 Disclosure:</strong> Yahoo disclosed the breaches years later, sparking outrage.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-pink-400 mb-2">Attack Methods Used</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>🔑 <strong>Weak Encryption Exploitation:</strong> MD5 password hashing was easily brute-forced.</li>
+                        <li>🍪 <strong>Cookie Forging:</strong> Attackers generated authentication tokens to bypass passwords.</li>
+                        <li>📧 <strong>Spear-Phishing:</strong> Targeted employees to gain entry into internal systems.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Stakeholders Affected & Weaknesses Identified -->
+        <div id="slide-5" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Stakeholders & Weaknesses</h1>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+                <div>
+                    <h2 class="text-xl font-semibold text-teal-400 mb-2">Affected Stakeholders</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>👤 <strong>Users:</strong> Exposed to risk of fraud, phishing, and identity theft.</li>
+                        <li>📉 <strong>Yahoo:</strong> Faced lawsuits, fines, and severe reputational damage.</li>
+                        <li>💰 <strong>Verizon:</strong> Acquisition price was lowered by $350 million.</li>
+                        <li>🏛️ <strong>Governments:</strong> Concerns about cyber-espionage and data security.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-teal-400 mb-2">Weaknesses Identified</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>Reliance on obsolete MD5 encryption.</li>
+                        <li>Lack of intrusion detection systems and weak monitoring.</li>
+                        <li>Delayed disclosure reflecting poor transparency culture.</li>
+                        <li>Organizational instability leading to underfunded security.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Solution / Intervention -->
+        <div id="slide-6" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Solution & Intervention</h1>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+                <div>
+                    <h2 class="text-xl font-semibold text-purple-400 mb-2">Yahoo's Post-Breach Actions</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>Forced password resets for all affected accounts.</li>
+                        <li>Invalidated compromised security questions.</li>
+                        <li>Migrated from MD5 hashing to stronger encryption (bcrypt).</li>
+                        <li>Enhanced monitoring and detection systems.</li>
+                        <li>Cooperated with law enforcement in investigations.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-purple-400 mb-2">Legal Actions</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>2017: U.S. DOJ indicted four individuals, including Russian intelligence agents.</li>
+                        <li>2018: Hacker Karim Baratov sentenced to 5 years in prison and fined $250,000.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Results & Outcomes and Discussion -->
+        <div id="slide-7" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Results & Insights</h1>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+                <div>
+                    <h2 class="text-xl font-semibold text-teal-400 mb-2">Key Outcomes</h2>
+                    <p class="text-lg">Acquisition price lowered by $350M. Yahoo's reputation severely damaged, leading to mass user migration, lawsuits, and fines. The incident, however, raised global awareness and encouraged stronger industry standards.</p>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-yellow-400 mb-2">Discussion & Insights</h2>
+                    <ul class="list-disc pl-8 mt-4 text-base space-y-2">
+                        <li>What Worked: Collaboration with authorities, later adoption of stronger security.</li>
+                        <li>What Failed: Outdated security, years-long delay in disclosure, and underestimation of nation-state threats.</li>
+                        <li>Unexpected Findings: Breaches extended beyond financial motives into cyber-espionage, highlighting geopolitical impacts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Conclusion & References -->
+        <div id="slide-8" class="slide">
+            <h1 class="text-3xl font-bold mb-8 fade-in">Conclusion & References</h1>
+            <p class="text-lg mb-4 fade-in">The Yahoo breaches represent a watershed moment in cybersecurity history. The key lessons are clear: use strong encryption, invest in proactive monitoring, disclose breaches promptly, and treat cybersecurity as a business priority.</p>
+            <h2 class="text-xl text-yellow-300 font-semibold mt-4 mb-2 fade-in">References</h2>
+            <ul class="list-disc pl-8 mt-4 text-base space-y-2 fade-in">
+                <li>New York Times (2016). Yahoo Says Hackers Stole Data on 500 Million Accounts.</li>
+                <li>U.S. Department of Justice (2017). Indictment of Yahoo Hackers.</li>
+                <li>Engadget (2018). Yahoo Hacker Sentenced to 5 Years.</li>
+                <li>Allstate Identity Protection (2017). Analysis of Yahoo Breach Impact.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" class="control-button px-6 py-3" onclick="prevSlide()">Previous</button>
+        <div id="slideCounter" class="slide-counter">Slide 1 of 8</div>
+        <button id="nextBtn" class="control-button px-6 py-3" onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function showSlides(n) {
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.classList.remove('fade-in');
+            });
+            slides[slideIndex - 1].classList.add('active');
+            slides[slideIndex - 1].classList.add('fade-in');
+
+            prevBtn.disabled = slideIndex === 1;
+            nextBtn.disabled = slideIndex === slides.length;
+            
+            slideCounter.textContent = `Slide ${slideIndex} of ${slides.length}`;
+        }
+
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlides(slideIndex -= 1);
+        }
+
+        // Initialize the first slide on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlides(slideIndex);
+        });
+    </script>
+
+</body>
+</html>

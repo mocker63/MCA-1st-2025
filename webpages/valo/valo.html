@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Market Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f1923;
+      color: #ece8e1;
+    }
+    header {
+      background-color: #ff4655;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: #1f2a35;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    .card h2 {
+      color: #ff4655;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    table th, table td {
+      border: 1px solid #ece8e1;
+      padding: 0.8rem;
+      text-align: center;
+    }
+    table th {
+      background-color: #ff4655;
+    }
+    footer {
+      background-color: #1f2a35;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Valorant Market Guide</h1>
+  </header>
+
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search a website (e.g. GameBoost, Eldorado)">
+    </div>
+
+    <div class="cards" id="cards">
+      <div class="card" data-name="PlayerAuctions">
+        <h2>PlayerAuctions</h2>
+        <p>Peer-to-peer marketplace for Valorant accounts, skins, and more. Escrow protection, price tracker, and account calculator included.</p>
+        <ul>
+          <li>✅ Large user base, wide range of options</li>
+          <li>✅ Escrow system for security</li>
+          <li>❌ No live chat or cashback</li>
+          <li>❌ Short warranty (~7 days)</li>
+        </ul>
+      </div>
+
+      <div class="card" data-name="Eldorado">
+        <h2>Eldorado.gg</h2>
+        <p>Global game accounts marketplace with instant delivery, 24/7 support, and 5-day buyer protection.</p>
+      </div>
+
+      <div class="card" data-name="GameBoost">
+        <h2>GameBoost</h2>
+        <p>Top-rated site for Valorant smurfs, boosting, and VP top-ups. Features live chat, cashback, and 14-day warranty.</p>
+      </div>
+
+      <div class="card" data-name="iGVault">
+        <h2>iGVault (iGV)</h2>
+        <p>Trusted marketplace since 2006. Offers theft insurance, verified sellers, instant delivery, and 24/7 support.</p>
+      </div>
+
+      <div class="card" data-name="Skycoach">
+        <h2>Skycoach.gg</h2>
+        <p>Account marketplace with filters (rank, server, skins) and SSL-secure payments. Instant delivery, 24/7 support.</p>
+      </div>
+
+      <div class="card" data-name="ValorantBuilder">
+        <h2>ValorantBuilder</h2>
+        <p>Not a market – but lets you plan and visualize your dream Valorant skin collection without logging in.</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Website</th>
+          <th>What You Can Do</th>
+          <th>Delivery</th>
+          <th>Support / Safety Features</th>
+          <th>Warranty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PlayerAuctions</td>
+          <td>Accounts, skins, VP, power leveling</td>
+          <td>Instant (escrow)</td>
+          <td>Escrow, tools available</td>
+          <td>~7 days</td>
+        </tr>
+        <tr>
+          <td>Eldorado.gg</td>
+          <td>Accounts and items</td>
+          <td>Instant</td>
+          <td>24/7 support, buyer protection</td>
+          <td>~5 days</td>
+        </tr>
+        <tr>
+          <td>GameBoost</td>
+          <td>Smurfs, boosting, VP top-up</td>
+          <td>Instant</td>
+          <td>Live chat, cashback</td>
+          <td>~14 days</td>
+        </tr>
+        <tr>
+          <td>iGVault</td>
+          <td>Wide gaming marketplace</td>
+          <td>Instant</td>
+          <td>Theft insurance, verified sellers</td>
+          <td>~14 days</td>
+        </tr>
+        <tr>
+          <td>Skycoach.gg</td>
+          <td>Accounts with filters</td>
+          <td>Instant</td>
+          <td>SSL-secure, cashback</td>
+          <td>Not specified</td>
+        </tr>
+        <tr>
+          <td>ValorantBuilder</td>
+          <td>Skin collection builder</td>
+          <td>N/A</td>
+          <td>Visual planning</td>
+          <td>N/A</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Valorant Market Guide | Fan-made resource</p>
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+
+    search.addEventListener('keyup', function() {
+      const query = search.value.toLowerCase();
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

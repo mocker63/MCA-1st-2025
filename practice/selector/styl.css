@@ -1,0 +1,18 @@
+h1{
+    color: aqua;
+    font-style: italic;
+}
+p{
+    color: azure;
+    font-style: bold;
+
+}
+h2{
+    color: black;
+    font: bolder;
+}
+.background{
+    background-color: brown;
+}
+/*#id for id selector
+/* *selector for selecting all

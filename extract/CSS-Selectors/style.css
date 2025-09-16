@@ -1,0 +1,20 @@
+ol {
+  margin-left: -40px;
+  margin-top: -20px;
+  list-style-position: inside;
+}
+
+/* Write your CSS below, don't change the rules above. */
+.p1{
+  color:black;
+  font-size: bold;
+}
+li{
+  color: red;
+}
+#id-selector-demo{
+  color:green ;
+}
+li[value=4]{
+  color:blue ;
+}

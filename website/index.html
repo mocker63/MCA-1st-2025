@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Water Reminder</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="card">
+<h1>💧 Water Reminder</h1>
+
+
+<div class="controls">
+<label for="interval">Interval (minutes)</label>
+<input id="interval" type="number" min="1" value="45" />
+
+
+<div class="buttons">
+<button id="start">Start</button>
+<button id="stop" class="secondary">Stop</button>
+<button id="drinkNow" class="accent">Drink Now</button>
+</div>
+</div>
+
+
+<div class="status">
+<p>Next reminder: <span id="nextTime">—</span></p>
+<p>Countdown: <span id="countdown">—</span></p>
+<p>Last drank: <span id="lastDrank">—</span></p>
+</div>
+
+
+<small class="hint">Tip: Allow browser notifications for best experience.</small>
+</main>
+
+
+<script src="script.js"></script>
+</body>
+</html>

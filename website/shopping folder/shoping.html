@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      background: blueviolet;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .products {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+
+    button {
+      background:black;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      background: #08918c;
+    }
+
+    .cart {
+      flex: 1;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .cart h2 {
+      margin-top: 0;
+    }
+
+    #cartItems {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #cartItems li {
+      display: flex;
+      justify-content: space-between;
+      margin: 4px 0;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛒 Mocker's Merchandise</h1>
+  </header>
+
+  <main>
+    <section class="products" id="products"></section>
+
+    <aside class="cart">
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <p class="total">Total: $<span id="cartTotal">0.00</span></p>
+      <button id="checkout">Checkout</button>
+    </aside>
+  </main>
+
+  <script>
+    const products = [
+      { id: 1, name: "Laptop", price: 750, img: "https://tse3.mm.bing.net/th/id/OIP.3Gk5ZgkUDP68tEwAE2JI2gHaFj?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { id: 2, name: "Headphones", price: 120, img: "https://tse1.explicit.bing.net/th/id/OIP.Z_UjGIGf9EMQRB61FE8-3gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
+      { id: 3, name: "Smartphone", price: 499, img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202212/best_phones_under_rs_35000-sixteen_nine.png?VersionId=WXFL.5F6xHUlJ96z90XGS_RVhoEsEw9K" },
+      { id: 4, name: "Shoes", price: 89, img: "https://staticg.sportskeeda.com/editor/2022/12/06bf7-16701342039732-1920.jpg" }
+      
+    ];
+
+    const productsContainer = document.getElementById("products");
+    const cartItemsEl = document.getElementById("cartItems");
+    const cartTotalEl = document.getElementById("cartTotal");
+
+    let cart = [];
+
+    function renderProducts() {
+      products.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.innerHTML = `
+          <img src="${p.img}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>$${p.price.toFixed(2)}</p>
+          <button onclick="addToCart(${p.id})">Add to Cart</button>
+        `;
+        productsContainer.appendChild(div);
+      });
+    }
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      cart.push(product);
+      renderCart();
+    }
+
+    function renderCart() {
+      cartItemsEl.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.name} - $${item.price.toFixed(2)}
+          <button onclick="removeFromCart(${index})">❌</button>
+        `;
+        cartItemsEl.appendChild(li);
+      });
+      cartTotalEl.textContent = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    document.getElementById("checkout").addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+      } else {
+        alert("Thank you for your purchase!");
+        cart = [];
+        renderCart();
+      }
+    });
+
+    renderProducts();
+  </script>
+</body>
+</html>

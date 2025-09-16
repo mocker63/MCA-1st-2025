@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    .display {
+      background: #222;
+      color: #0f0;
+      font-size: 2em;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: right;
+      margin-bottom: 15px;
+      overflow-x: auto;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .operator {
+      background: #ff9500;
+      color: #fff;
+    }
+
+    .equal {
+      background: #28a745;
+      color: #fff;
+      grid-column: span 2;
+    }
+
+    .clear {
+      background: #dc3545;
+      color: #fff;
+    }
+
+    .number, .dot {
+      background: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button class="operator">%</button>
+      <button class="operator">÷</button>
+      <button class="operator">×</button>
+      
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">−</button>
+      
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">+</button>
+      
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="equal">=</button>
+      
+      <button class="number" style="grid-column: span 2;">0</button>
+      <button class="dot">.</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('button');
+    let currentInput = '0';
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const value = button.textContent;
+
+        if (button.classList.contains('number') || button.classList.contains('dot')) {
+          if (currentInput === '0') {
+            currentInput = value;
+          } else {
+            currentInput += value;
+          }
+        } 
+        else if (button.classList.contains('operator')) {
+          currentInput += 
+            value === '÷' ? '/' : 
+            value === '×' ? '*' : 
+            value === '−' ? '-' : value;
+        } 
+        else if (button.classList.contains('equal')) {
+          try {
+            currentInput = eval(currentInput).toString();
+          } catch {
+            currentInput = 'Error';
+          }
+        } 
+        else if (button.classList.contains('clear')) {
+          currentInput = '0';
+        }
+
+        display.textContent = currentInput;
+      });
+    });
+  </script>
+</body>
+</html>
